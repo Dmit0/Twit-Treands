@@ -40,9 +40,6 @@ namespace Data_Objects.Parsers
         {
             var parsedData = Regex.Split(tweet, @"\]");
             var stringNumbers = Regex.Split(parsedData[0].TrimStart('['), @", ");
-
-            Convert.ToDouble(Regex.Replace(stringNumbers[0], @"\.", ","));
-            Convert.ToDouble(Regex.Replace(stringNumbers[1], @"\.", ","));
             PointLatLng coords = new PointLatLng(Convert.ToDouble(Regex.Replace(stringNumbers[0], @"\.", ",")), Convert.ToDouble(Regex.Replace(stringNumbers[1], @"\.", ",")));
             return coords;
         }
